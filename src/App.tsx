@@ -1,28 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Lenis from 'lenis';
-import { useMotionStore } from './store/useMotionStore';
-import { Navbar } from './components/layout/Navbar';
-import { Footer } from './components/layout/Footer';
-import { HeroSection } from './components/sections/01_Hero';
-import { AboutSection } from './components/sections/02_About';
-import { EventsSection } from './components/sections/03_Events';
-import { MindsSection } from './components/sections/04_Minds';
-import { ProgrammeSection } from './components/sections/05_Programme';
-import { RegistrationSection } from './components/sections/06_Registration';
-import { TrustDetailsSection } from './components/sections/07_TrustDetails';
-import { EventDetailModal } from './components/modals/EventDetailModal';
-import { RegistrationDrawer } from './components/modals/RegistrationDrawer';
-import { HandbookModal } from './components/modals/HandbookModal';
+import { Navbar } from './components/manthan/Navbar';
+import { Hero } from './components/manthan/Hero';
+import { Sessions } from './components/manthan/Sessions';
+import { BookSession } from './components/manthan/BookSession';
+import { Contact } from './components/manthan/Contact';
+import { Footer } from './components/manthan/Footer';
 
 export const App: React.FC = () => {
-  const motionEnabled = useMotionStore((state) => state.motionEnabled);
+  const [selectedTopic, setSelectedTopic] = useState<string>('');
 
-  // Initialize Lenis buttery smooth inertia scrolling
+  // Smooth inertial scrolling with Lenis
   useEffect(() => {
-    if (!motionEnabled) return;
-
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.1,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
@@ -43,44 +34,33 @@ export const App: React.FC = () => {
       cancelAnimationFrame(animationFrameId);
       lenis.destroy();
     };
-  }, [motionEnabled]);
+  }, []);
+
+  const handleSelectSessionForBooking = (topicTitle: string) => {
+    setSelectedTopic(topicTitle);
+  };
 
   return (
-    <div className="bg-midnight text-ivory min-h-screen selection:bg-holo-magenta/30 selection:text-ivory font-sans relative">
-      {/* Sticky Glassmorphic Navbar */}
+    <div className="bg-midnight text-ivory min-h-screen selection:bg-holo-cyan/20 selection:text-ivory font-sans relative">
+      {/* 2. Main Navigation: Home, Sessions, Book a Session, Contact */}
       <Navbar />
 
-      {/* Main 7-Section Journey */}
       <main>
-        {/* 01. The Question (Hero with 3D Centerpiece & Interactive Galaxy) */}
-        <HeroSection />
+        {/* 3. Home: Introduction, Vortex Canvas, Explore. Understand. Evolve., Primary CTA, Sessions Preview */}
+        <Hero onSelectTopic={handleSelectSessionForBooking} />
 
-        {/* 02. The Invitation (About + Mirrored Reflection Motif) */}
-        <AboutSection />
+        {/* 4. Sessions: Dedicated section with the 6 session areas & intended audiences */}
+        <Sessions onSelectSessionForBooking={handleSelectSessionForBooking} />
 
-        {/* 03. The Experience (7 Frameless Glowing Event Portals) */}
-        <EventsSection />
+        {/* 5. Book a Session: Heading, Enquiry notice, all requested form fields */}
+        <BookSession selectedTopicTitle={selectedTopic} />
 
-        {/* 04. The Minds (Awakening Celestial Placeholders) */}
-        <MindsSection />
-
-        {/* 05. The Programme (Interactive Day 1 & Day 2 Schedule) */}
-        <ProgrammeSection />
-
-        {/* 06. Join the Experience (5 Pathways & Connection Motif) */}
-        <RegistrationSection />
-
-        {/* 07. The Details (Zero-Motion High Contrast Rules & Matrix) */}
-        <TrustDetailsSection />
+        {/* 6. Contact: Email, Phone, Instagram, LinkedIn, Location */}
+        <Contact />
       </main>
 
-      {/* Institutional Trust Footer */}
+      {/* Minimal Footer */}
       <Footer />
-
-      {/* Interactive Portals & Modals */}
-      <EventDetailModal />
-      <RegistrationDrawer />
-      <HandbookModal />
     </div>
   );
 };

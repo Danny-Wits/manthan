@@ -81,7 +81,9 @@ export const Cosmic2DHero: React.FC = () => {
             o.connect(og); og.connect(lp); o.start();
           });
         }
-        audioCtxRef.current.state === 'suspended' && audioCtxRef.current.resume();
+        if (audioCtxRef.current.state === 'suspended') {
+          audioCtxRef.current.resume();
+        }
         masterGain.current?.gain.setTargetAtTime(0.15, audioCtxRef.current.currentTime, 0.7);
         setAudioActive(true);
       } catch { /* audio unavailable */ }

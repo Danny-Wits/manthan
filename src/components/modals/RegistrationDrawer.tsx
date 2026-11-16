@@ -324,7 +324,7 @@ export const RegistrationDrawer: React.FC = () => {
                             </label>
                             <select
                               value={regStore.institutionData.institutionType}
-                              onChange={(e) => regStore.setInstitutionField('institutionType', e.target.value as any)}
+                              onChange={(e) => regStore.setInstitutionField('institutionType', e.target.value as 'school' | 'college' | 'university' | 'autonomous_institute')}
                               className="w-full px-3 py-2 rounded-xl bg-midnight border border-lavender/15 text-xs text-ivory focus:border-holo-cyan focus:outline-none"
                             >
                               <option value="college">Degree College</option>
@@ -669,7 +669,7 @@ export const RegistrationDrawer: React.FC = () => {
                         <label className="text-[11px] font-mono text-ivory-dim block mb-1">Attendance Day</label>
                         <select
                           value={regStore.individualData.dayPreference}
-                          onChange={(e) => regStore.setIndividualField('dayPreference', e.target.value as any)}
+                          onChange={(e) => regStore.setIndividualField('dayPreference', e.target.value as 'day1' | 'day2' | 'both')}
                           className="w-full px-3 py-2 rounded-xl bg-midnight border border-lavender/15 text-xs text-ivory focus:border-holo-cyan focus:outline-none"
                         >
                           <option value="day1">Day 1 (Friday)</option>
@@ -792,7 +792,7 @@ export const RegistrationDrawer: React.FC = () => {
                         <label className="text-[11px] font-mono text-ivory-dim block mb-1">Category</label>
                         <select
                           value={regStore.vendorData.category}
-                          onChange={(e) => regStore.setVendorField('category', e.target.value as any)}
+                          onChange={(e) => regStore.setVendorField('category', e.target.value as 'books_psychology' | 'artisan_crafts' | 'wellness_mind' | 'food_beverage')}
                           className="w-full px-3 py-2 rounded-xl bg-midnight border border-lavender/15 text-xs text-ivory focus:border-holo-cyan focus:outline-none"
                         >
                           <option value="books_psychology">Books & Psychology Literature</option>
@@ -805,7 +805,7 @@ export const RegistrationDrawer: React.FC = () => {
                         <label className="text-[11px] font-mono text-ivory-dim block mb-1">Space Requirement</label>
                         <select
                           value={regStore.vendorData.spaceRequirement}
-                          onChange={(e) => regStore.setVendorField('spaceRequirement', e.target.value as any)}
+                          onChange={(e) => regStore.setVendorField('spaceRequirement', e.target.value as 'standard_canopy_6x6' | 'deluxe_canopy_10x10')}
                           className="w-full px-3 py-2 rounded-xl bg-midnight border border-lavender/15 text-xs text-ivory focus:border-holo-cyan focus:outline-none"
                         >
                           <option value="standard_canopy_6x6">Standard Canopy (6x6 ft)</option>
@@ -861,7 +861,7 @@ export const RegistrationDrawer: React.FC = () => {
                       <label className="text-[11px] font-mono text-ivory-dim block mb-1">Patronage Tier of Interest</label>
                       <select
                         value={regStore.sponsorData.partnershipType}
-                        onChange={(e) => regStore.setSponsorField('partnershipType', e.target.value as any)}
+                        onChange={(e) => regStore.setSponsorField('partnershipType', e.target.value as 'associate_patron' | 'title_partner' | 'session_curator' | 'creative_awards_sponsor')}
                         className="w-full px-3 py-2 rounded-xl bg-midnight border border-lavender/15 text-xs text-ivory focus:border-holo-cyan focus:outline-none"
                       >
                         <option value="associate_patron">Associate Patron & Concourse Sponsor</option>
