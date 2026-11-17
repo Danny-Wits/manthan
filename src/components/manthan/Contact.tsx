@@ -17,17 +17,21 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-24 sm:py-32 bg-[#0A0B1E] relative overflow-hidden border-t border-white/[0.05]">
+    <section id="contact" className="py-24 sm:py-32 bg-[#0A0B1E] relative overflow-hidden">
+      <div className="absolute top-0 inset-x-0 gradient-divider" />
+      {/* Ambient Gradient Glow */}
+      <div className="absolute top-1/2 left-1/3 w-[500px] h-[500px] bg-gradient-to-tr from-cyan-600/15 via-indigo-600/15 to-purple-600/10 blur-[130px] rounded-full pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/[0.03] border border-white/5 text-xs font-mono font-semibold text-amber-300 uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full badge-gradient text-xs font-mono font-semibold text-amber-300 uppercase tracking-wider mb-4">
             <Sparkles className="w-3.5 h-3.5 text-amber-400" />
             <span>{MANTHAN_CONTENT.contact.sectionTitle}</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
-            {MANTHAN_CONTENT.contact.headline}
+            Let&apos;s <span className="text-gradient-celestial">Collaborate</span> &amp; Inquire Together
           </h2>
 
           <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-xl mx-auto">

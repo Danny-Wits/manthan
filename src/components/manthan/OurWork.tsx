@@ -54,30 +54,34 @@ export const OurWork: React.FC<OurWorkProps> = ({ onSelectTopicForBooking }) => 
   };
 
   return (
-    <section id="work" className="py-24 sm:py-32 bg-[#0A0B1E] relative overflow-hidden border-t border-white/[0.05]">
+    <section id="work" className="py-24 sm:py-32 bg-[#0A0B1E] relative overflow-hidden">
+      <div className="absolute top-0 inset-x-0 gradient-divider" />
+      {/* Ambient Gradient Glow */}
+      <div className="absolute top-1/3 left-10 w-[500px] h-[500px] bg-gradient-to-tr from-indigo-700/15 via-purple-600/10 to-amber-500/10 blur-[130px] rounded-full pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/[0.03] border border-white/5 text-xs font-mono font-semibold text-amber-300 uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full badge-gradient text-xs font-mono font-semibold text-amber-300 uppercase tracking-wider mb-4">
             <Sparkles className="w-3.5 h-3.5 text-amber-400" />
             <span>{MANTHAN_CONTENT.ourWork.sectionTitle}</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6">
-            Connecting Knowledge, Dialogue & Creative Expression
+            Connecting <span className="text-gradient-gold">Knowledge</span>, <span className="text-gradient-celestial">Dialogue</span> &amp; <span className="text-gradient-vortex">Creative Expression</span>
           </h2>
 
           <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">
             {MANTHAN_CONTENT.ourWork.lead}
           </p>
 
-          {/* Soft Rounded Tab Toggles */}
-          <div className="inline-flex p-1 bg-[#0F112B] rounded-full mt-8 border border-white/[0.06]">
+          {/* Soft Rounded Tab Toggles with Gradient */}
+          <div className="inline-flex p-1 bg-[#0F112B]/90 rounded-full mt-8 border border-white/10 backdrop-blur-md shadow-lg">
             <button
               onClick={() => setActiveTab('pillars')}
               className={`px-6 py-2.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
                 activeTab === 'pillars'
-                  ? 'bg-amber-500 text-slate-950 shadow-sm'
+                  ? 'btn-primary shadow-[0_0_15px_rgba(245,158,11,0.4)]'
                   : 'text-slate-400 hover:text-white'
               }`}
             >
@@ -87,7 +91,7 @@ export const OurWork: React.FC<OurWorkProps> = ({ onSelectTopicForBooking }) => 
               onClick={() => setActiveTab('workshops')}
               className={`px-6 py-2.5 rounded-full text-xs font-bold transition-all cursor-pointer flex items-center gap-2 ${
                 activeTab === 'workshops'
-                  ? 'bg-amber-500 text-slate-950 shadow-sm'
+                  ? 'btn-primary shadow-[0_0_15px_rgba(245,158,11,0.4)]'
                   : 'text-slate-400 hover:text-white'
               }`}
             >
@@ -105,7 +109,7 @@ export const OurWork: React.FC<OurWorkProps> = ({ onSelectTopicForBooking }) => 
                 <div
                   key={pillar.id}
                   className={`theme-card p-8 flex flex-col justify-between ${
-                    isFeatured ? 'md:col-span-2 lg:col-span-2 bg-[#121538]' : ''
+                    isFeatured ? 'md:col-span-2 lg:col-span-2 bg-gradient-to-br from-[#161a4c]/80 via-[#131640]/90 to-[#0e102e]/85 border-amber-400/20' : ''
                   }`}
                 >
                   <div>
@@ -219,7 +223,7 @@ export const OurWork: React.FC<OurWorkProps> = ({ onSelectTopicForBooking }) => 
               {/* Right Column: Selected Topic Detail Card */}
               <div className="lg:col-span-7">
                 {selectedWorkshop && (
-                  <div className="p-6 sm:p-8 rounded-2xl bg-[#121538] border border-white/5">
+                  <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-[#151949]/90 via-[#12153c]/90 to-[#0e1030]/85 border border-white/10 shadow-xl backdrop-blur-md">
                     <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
                       <span className="text-xs font-mono font-bold text-amber-300 bg-amber-950/60 border border-amber-500/20 px-3.5 py-1 rounded-full">
                         Interactive Workshop Module

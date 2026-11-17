@@ -5,18 +5,22 @@ import { MANTHAN_CONTENT } from '../../data/manthanContent';
 
 export const About: React.FC = () => {
   return (
-    <section id="about" className="py-24 sm:py-32 bg-[#0A0B1E] relative overflow-hidden border-t border-white/[0.05]">
+    <section id="about" className="py-24 sm:py-32 bg-[#0A0B1E] relative overflow-hidden">
+      <div className="absolute top-0 inset-x-0 gradient-divider" />
+      {/* Ambient Celestial Glow */}
+      <div className="absolute top-1/2 right-10 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-bl from-cyan-500/15 via-indigo-600/15 to-purple-600/10 blur-[130px] rounded-full pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-20">
           {/* Left Column: Vision & Narrative */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
-            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/[0.03] border border-white/5 text-xs font-mono font-semibold text-amber-300 uppercase tracking-wider mb-4">
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full badge-gradient text-xs font-mono font-semibold text-amber-300 uppercase tracking-wider mb-4">
               <Sparkles className="w-3.5 h-3.5 text-amber-400" />
               <span>{MANTHAN_CONTENT.about.sectionTitle}</span>
             </div>
 
             <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-6">
-              {MANTHAN_CONTENT.about.headline}
+              A Space Where <span className="text-gradient-celestial">Curiosity Meets Culture</span>
             </h2>
 
             <div className="space-y-4 text-slate-300 text-base sm:text-lg leading-relaxed mb-8">
@@ -27,8 +31,8 @@ export const About: React.FC = () => {
               ))}
             </div>
 
-            {/* Soft Rounded Quote Box */}
-            <div className="p-6 rounded-2xl bg-[#0F112B] border border-white/[0.06]">
+            {/* Soft Rounded Gradient Quote Box */}
+            <div className="p-6 rounded-2xl bg-gradient-to-r from-[#14173F]/80 via-[#181648]/70 to-[#121A3F]/80 border border-white/10 shadow-lg backdrop-blur-md">
               <div className="flex items-start gap-4">
                 <Quote className="w-6 h-6 text-amber-400 flex-shrink-0 mt-1" />
                 <p className="font-serif italic text-base sm:text-lg text-slate-200 leading-snug">

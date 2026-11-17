@@ -93,20 +93,24 @@ export const Institutions: React.FC<InstitutionsProps> = ({ selectedTopicTitle }
   };
 
   return (
-    <section id="institutions" className="py-24 sm:py-32 bg-[#0A0B1E] relative overflow-hidden border-t border-white/[0.05]">
+    <section id="institutions" className="py-24 sm:py-32 bg-[#0A0B1E] relative overflow-hidden">
+      <div className="absolute top-0 inset-x-0 gradient-divider" />
+      {/* Ambient Gradient Glow */}
+      <div className="absolute top-1/2 right-1/4 w-[550px] h-[550px] bg-gradient-to-tl from-purple-600/15 via-indigo-600/15 to-cyan-500/10 blur-[140px] rounded-full pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/[0.03] border border-white/5 text-xs font-mono font-semibold text-amber-300 uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full badge-gradient text-xs font-mono font-semibold text-amber-300 uppercase tracking-wider mb-4">
             <Sparkles className="w-3.5 h-3.5 text-amber-400" />
             <span>{MANTHAN_CONTENT.institutions.sectionTitle}</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
-            {MANTHAN_CONTENT.institutions.headline}
+            Bringing <span className="text-gradient-celestial">MANTHAN</span> to Institutions
           </h2>
 
-          <p className="font-serif italic text-2xl sm:text-3xl text-amber-300 font-normal mb-6">
+          <p className="font-serif italic text-2xl sm:text-3xl text-gradient-gold font-normal mb-6">
             &ldquo;{MANTHAN_CONTENT.institutions.subtitle}&rdquo;
           </p>
 

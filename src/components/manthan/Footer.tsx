@@ -21,7 +21,8 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="w-full bg-[#070817] border-t border-white/[0.06] py-16 px-4 sm:px-6 lg:px-8 text-slate-400 font-sans text-xs">
+    <footer className="w-full bg-[#070817] relative py-16 px-4 sm:px-6 lg:px-8 text-slate-400 font-sans text-xs">
+      <div className="absolute top-0 inset-x-0 gradient-divider" />
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/[0.06]">
           {/* Col 1: Brand Info */}
@@ -35,7 +36,7 @@ export const Footer: React.FC = () => {
                 />
               </div>
               <div className="flex flex-col">
-                <span className="font-sans text-lg font-black text-[#EDD8BD] tracking-[0.2em] uppercase">
+                <span className="font-sans text-lg font-black text-gradient-celestial tracking-[0.2em] uppercase">
                   MANTHAN
                 </span>
                 <span className="text-[11px] font-serif italic text-amber-300 -mt-0.5">
