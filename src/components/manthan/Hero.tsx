@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react';
 import { ArrowDown, Play, Pause, Building2, Music } from 'lucide-react';
-import { CelestialStarfieldCanvas } from '../hero/CelestialStarfieldCanvas';
 import { MANTHAN_CONTENT } from '../../data/manthanContent';
 import { toggleCosmicSound } from '../../lib/cosmicSound';
 
@@ -46,12 +45,9 @@ export const Hero: React.FC<HeroProps> = () => {
   return (
     <section
       id="home"
-      className="relative w-full min-h-screen pt-32 pb-24 flex items-center justify-center overflow-hidden bg-black"
+      className="relative w-full min-h-screen pt-32 pb-24 flex items-center justify-center overflow-hidden bg-transparent"
     >
-      {/* 1. Celestial Night Sky Starfield Canvas (Jet Black with Warm White/Yellow Stars) */}
-      <CelestialStarfieldCanvas className="absolute inset-0 w-full h-full pointer-events-none z-0" />
-
-      {/* 2. Seamlessly Blended Background Video (Jet Black Screen Blend & Feathered Radial Mask) */}
+      {/* 1. Seamlessly Blended Background Video (Jet Black Screen Blend & Feathered Radial Mask) */}
       <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none z-0">
         <div className="relative -translate-y-16 sm:-translate-y-24 md:-translate-y-28 transition-transform duration-700">
           <video
@@ -71,7 +67,7 @@ export const Hero: React.FC<HeroProps> = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black pointer-events-none" />
       </div>
 
-      {/* 3. Foreground Hero Content (Warm Yellow & Jet Black Theme - Distinctive & Bold) */}
+      {/* 2. Foreground Hero Content (Warm Yellow & Jet Black Theme - Distinctive & Bold) */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
         {/* Brand Emblem with Warm Starlight Halo */}
         <div className="relative mb-5 flex items-center justify-center group">
@@ -79,7 +75,7 @@ export const Hero: React.FC<HeroProps> = () => {
           <img
             src="/manthan-emblem-transparent.png"
             alt="MANTHAN Celestial Emblem"
-            className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 object-contain drop-shadow-[0_0_30px_rgba(250,204,21,0.4)] select-none transition-transform duration-700 group-hover:scale-105"
+            className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 object-contain theme-logo-filter select-none transition-transform duration-700 group-hover:scale-105"
           />
         </div>
 

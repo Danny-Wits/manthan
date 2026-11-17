@@ -5,7 +5,7 @@ import { MANTHAN_CONTENT } from '../../data/manthanContent';
 
 export const About: React.FC = () => {
   return (
-    <section id="about" className="py-24 sm:py-32 bg-black relative overflow-hidden border-t border-yellow-500/15">
+    <section id="about" className="py-24 sm:py-32 bg-transparent relative overflow-hidden border-t border-yellow-500/15">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-20">
           {/* Left Column: Vision & Narrative */}

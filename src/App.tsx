@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Lenis from 'lenis';
+import { CelestialStarfieldCanvas } from './components/hero/CelestialStarfieldCanvas';
 import { Navbar } from './components/manthan/Navbar';
 import { Hero } from './components/manthan/Hero';
 import { About } from './components/manthan/About';
@@ -43,10 +44,16 @@ export const App: React.FC = () => {
 
   return (
     <div className="bg-black text-[#F8FAFC] min-h-screen selection:bg-yellow-400 selection:text-black font-sans relative antialiased">
+      {/* Global Celestial Starfield Canvas (Extends Across All Sections with Parallax) */}
+      <CelestialStarfieldCanvas
+        className="fixed inset-0 w-full h-full pointer-events-none z-0"
+        enableClickInteraction={true}
+      />
+
       {/* 1. Header Navigation */}
       <Navbar />
 
-      <main>
+      <main className="relative z-10">
         {/* 2. Background Video & Night Sky Starfield Hero */}
         <Hero onSelectTopic={handleSelectTopicForBooking} />
 

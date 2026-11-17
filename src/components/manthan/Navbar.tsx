@@ -59,7 +59,7 @@ export const Navbar: React.FC = () => {
             <img
               src="/manthan-emblem-transparent.png"
               alt="MANTHAN Emblem"
-              className="w-full h-full object-contain drop-shadow-[0_0_12px_rgba(250,204,21,0.4)] group-hover:scale-105 transition-transform duration-300"
+              className="w-full h-full object-contain theme-logo-filter group-hover:scale-105 transition-transform duration-300"
             />
           </div>
 

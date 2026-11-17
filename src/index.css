@@ -22,6 +22,20 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Warm Yellow & Jet Black Theme System (No Gradients) */
 
+/* Warm Yellow & Stellar White Logo Theme Filters */
+.theme-logo-filter {
+  filter: brightness(1.08) contrast(1.12) drop-shadow(0 0 14px rgba(250, 204, 21, 0.45));
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.theme-logo-filter:hover {
+  filter: brightness(1.22) contrast(1.18) drop-shadow(0 0 24px rgba(250, 204, 21, 0.75));
+}
+
+.filter-warm-theme {
+  filter: sepia(100%) saturate(380%) hue-rotate(5deg) brightness(1.1) contrast(1.12) drop-shadow(0 0 12px rgba(250, 204, 21, 0.45));
+}
+
 /* Distinctive Jet Black Cards with Warm Yellow Accents */
 .theme-card {
   background-color: #0A0A0A;

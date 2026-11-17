@@ -96,7 +96,7 @@ export const CelestialStarfieldCanvas: React.FC<CelestialStarfieldProps> = ({
     const beaconTexture = createBeaconStarTexture();
 
     // --- Star Layer 1: Distant Background Micro-Stars (Authentic Stellar Warm White/Yellow) ---
-    const DISTANT_COUNT = 1800;
+    const DISTANT_COUNT = 2400;
     const distantGeo = new THREE.BufferGeometry();
     const distantPos = new Float32Array(DISTANT_COUNT * 3);
     const distantColors = new Float32Array(DISTANT_COUNT * 3);
@@ -114,9 +114,9 @@ export const CelestialStarfieldCanvas: React.FC<CelestialStarfieldProps> = ({
 
     for (let i = 0; i < DISTANT_COUNT; i++) {
       const i3 = i * 3;
-      distantPos[i3] = (Math.random() - 0.5) * 900;
-      distantPos[i3 + 1] = (Math.random() - 0.5) * 600;
-      distantPos[i3 + 2] = (Math.random() - 0.5) * 500 - 100;
+      distantPos[i3] = (Math.random() - 0.5) * 1100;
+      distantPos[i3 + 1] = (Math.random() - 0.5) * 2200;
+      distantPos[i3 + 2] = (Math.random() - 0.5) * 600 - 100;
 
       const col = starPalette[Math.floor(Math.random() * starPalette.length)];
       distantColors[i3] = col.r;
@@ -139,8 +139,8 @@ export const CelestialStarfieldCanvas: React.FC<CelestialStarfieldProps> = ({
     const distantMesh = new THREE.Points(distantGeo, distantMat);
     scene.add(distantMesh);
 
-    // --- Star Layer 2: Midground Twinkling Stars (350 stars) ---
-    const MID_COUNT = 350;
+    // --- Star Layer 2: Midground Twinkling Stars (450 stars spanning full page height) ---
+    const MID_COUNT = 450;
     const midGeo = new THREE.BufferGeometry();
     const midPos = new Float32Array(MID_COUNT * 3);
     const midColors = new Float32Array(MID_COUNT * 3);
@@ -150,9 +150,9 @@ export const CelestialStarfieldCanvas: React.FC<CelestialStarfieldProps> = ({
 
     for (let i = 0; i < MID_COUNT; i++) {
       const i3 = i * 3;
-      midPos[i3] = (Math.random() - 0.5) * 750;
-      midPos[i3 + 1] = (Math.random() - 0.5) * 450;
-      midPos[i3 + 2] = (Math.random() - 0.5) * 350 + 50;
+      midPos[i3] = (Math.random() - 0.5) * 950;
+      midPos[i3 + 1] = (Math.random() - 0.5) * 2000;
+      midPos[i3 + 2] = (Math.random() - 0.5) * 450 + 40;
 
       const col = starPalette[Math.floor(Math.random() * starPalette.length)];
       midColors[i3] = col.r;
@@ -180,17 +180,17 @@ export const CelestialStarfieldCanvas: React.FC<CelestialStarfieldProps> = ({
     const midMesh = new THREE.Points(midGeo, midMat);
     scene.add(midMesh);
 
-    // --- Star Layer 3: Prominent Beacon Stars (36 stars) ---
-    const BEACON_COUNT = 36;
+    // --- Star Layer 3: Prominent Beacon Stars (48 stars across all sections) ---
+    const BEACON_COUNT = 48;
     const beaconGeo = new THREE.BufferGeometry();
     const beaconPos = new Float32Array(BEACON_COUNT * 3);
     const beaconColors = new Float32Array(BEACON_COUNT * 3);
 
     for (let i = 0; i < BEACON_COUNT; i++) {
       const i3 = i * 3;
-      beaconPos[i3] = (Math.random() - 0.5) * 700;
-      beaconPos[i3 + 1] = (Math.random() - 0.5) * 400;
-      beaconPos[i3 + 2] = (Math.random() - 0.5) * 200 + 80;
+      beaconPos[i3] = (Math.random() - 0.5) * 900;
+      beaconPos[i3 + 1] = (Math.random() - 0.5) * 1800;
+      beaconPos[i3 + 2] = (Math.random() - 0.5) * 250 + 80;
 
       const col = i % 2 === 0 ? new THREE.Color('#FFFFFF') : new THREE.Color('#FACC15');
       beaconColors[i3] = col.r;
@@ -379,11 +379,13 @@ export const CelestialStarfieldCanvas: React.FC<CelestialStarfieldProps> = ({
       bursts.push(new SparkleBurst());
     }
 
-    // --- Mouse Tracking & Click Spawning ---
+    // --- Mouse Tracking, Scroll Parallax & Click Spawning ---
     let mouseX = 0;
     let mouseY = 0;
     let targetX = 0;
     let targetY = 0;
+    let currentScrollY = 0;
+    let targetScrollY = 0;
 
     const handleMouseMove = (e: MouseEvent) => {
       const rect = container.getBoundingClientRect();
@@ -393,16 +395,32 @@ export const CelestialStarfieldCanvas: React.FC<CelestialStarfieldProps> = ({
       targetY = y * 14;
     };
 
+    const handleScroll = () => {
+      targetScrollY = (window.scrollY || window.pageYOffset) * 0.12;
+    };
+
     const handleClick = (e: MouseEvent) => {
       if (!enableClickInteraction) return;
+
+      // Do not trigger cosmic effects when user clicks inside form inputs
+      const target = e.target as HTMLElement | null;
+      if (
+        target &&
+        (target.tagName === 'INPUT' ||
+          target.tagName === 'TEXTAREA' ||
+          target.tagName === 'SELECT' ||
+          target.isContentEditable)
+      ) {
+        return;
+      }
 
       const rect = container.getBoundingClientRect();
       const normX = ((e.clientX - rect.left) / rect.width) * 2 - 1;
       const normY = -(((e.clientY - rect.top) / rect.height) * 2 - 1);
 
-      // Project onto z = 0 plane in world coordinates
-      const worldX = normX * (container.clientWidth / 2) * 0.45;
-      const worldY = normY * (container.clientHeight / 2) * 0.45;
+      // Project onto z = 0 plane in world coordinates aligned with current camera Y
+      const worldX = normX * (container.clientWidth / 2) * 0.45 + mouseX;
+      const worldY = normY * (container.clientHeight / 2) * 0.45 + camera.position.y;
 
       // 1. Spawn a shooting star shooting across from the click location!
       const idleMeteor = meteors.find((m) => !m.active);
@@ -422,6 +440,7 @@ export const CelestialStarfieldCanvas: React.FC<CelestialStarfieldProps> = ({
     };
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('click', handleClick);
 
     // --- Main Render / Animation Loop ---
@@ -432,12 +451,15 @@ export const CelestialStarfieldCanvas: React.FC<CelestialStarfieldProps> = ({
       animId = requestAnimationFrame(animate);
       time += 0.016;
 
-      // Smooth camera parallax
+      // Smooth scroll parallax
+      currentScrollY += (targetScrollY - currentScrollY) * 0.05;
+
+      // Smooth camera parallax with mouse and scroll depth
       mouseX += (targetX - mouseX) * 0.05;
       mouseY += (targetY - mouseY) * 0.05;
       camera.position.x = mouseX;
-      camera.position.y = mouseY;
-      camera.lookAt(scene.position);
+      camera.position.y = mouseY - currentScrollY;
+      camera.lookAt(new THREE.Vector3(mouseX * 0.3, mouseY * 0.3 - currentScrollY, 0));
 
       distantMesh.rotation.y += 0.00015;
       midMesh.rotation.y += 0.00025;
@@ -456,11 +478,15 @@ export const CelestialStarfieldCanvas: React.FC<CelestialStarfieldProps> = ({
       }
       midGeo.attributes.color.needsUpdate = true;
 
-      // Natural periodic shooting star (every ~5 seconds)
+      // Natural periodic shooting star spanning across currently viewed section
       meteorTimer++;
-      if (meteorTimer % 300 === 0) {
+      if (meteorTimer % 280 === 0) {
         const idleMeteor = meteors.find((m) => !m.active);
-        if (idleMeteor) idleMeteor.spawn();
+        if (idleMeteor) {
+          const spawnX = (Math.random() - 0.5) * 450;
+          const spawnY = camera.position.y + 100 + Math.random() * 80;
+          idleMeteor.spawn(spawnX, spawnY);
+        }
       }
 
       meteors.forEach((m) => m.update());
@@ -484,6 +510,7 @@ export const CelestialStarfieldCanvas: React.FC<CelestialStarfieldProps> = ({
     return () => {
       cancelAnimationFrame(animId);
       window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('click', handleClick);
       window.removeEventListener('resize', handleResize);
       meteors.forEach((m) => m.dispose());

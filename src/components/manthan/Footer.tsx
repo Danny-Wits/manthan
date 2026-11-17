@@ -21,7 +21,7 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="w-full bg-black border-t border-yellow-500/15 py-16 px-4 sm:px-6 lg:px-8 text-slate-400 font-sans text-xs">
+    <footer className="w-full bg-black/60 backdrop-blur-md border-t border-yellow-500/15 py-16 px-4 sm:px-6 lg:px-8 text-slate-400 font-sans text-xs relative z-10">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/[0.08]">
           {/* Col 1: Brand Info */}
@@ -31,7 +31,7 @@ export const Footer: React.FC = () => {
                 <img
                   src="/manthan-emblem-transparent.png"
                   alt="MANTHAN Emblem"
-                  className="w-full h-full object-contain drop-shadow-[0_0_10px_rgba(250,204,21,0.4)]"
+                  className="w-full h-full object-contain theme-logo-filter"
                 />
               </div>
               <div className="flex flex-col">
