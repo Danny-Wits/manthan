@@ -80,7 +80,7 @@ export const Hero: React.FC<HeroProps> = () => {
         </div>
 
         {/* Grand Brand Heading in Crisp Warm White */}
-        <h1 className="font-sans text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-[0.22em] text-[#FFFDF5] uppercase pl-[0.22em] mb-3 drop-shadow-[0_4px_30px_rgba(0,0,0,1)]">
+        <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-[0.25em] text-[#FFFDF5] uppercase pl-[0.25em] mb-4 drop-shadow-[0_4px_30px_rgba(0,0,0,1)]">
           MANTHAN
         </h1>
 

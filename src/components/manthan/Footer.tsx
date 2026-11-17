@@ -35,7 +35,7 @@ export const Footer: React.FC = () => {
                 />
               </div>
               <div className="flex flex-col">
-                <span className="font-sans text-lg font-black text-[#FFFDF5] tracking-[0.2em] uppercase">
+                <span className="font-display text-lg font-bold text-[#FFFDF5] tracking-[0.22em] uppercase">
                   MANTHAN
                 </span>
                 <span className="text-[11px] font-serif italic text-yellow-400/90 -mt-0.5">

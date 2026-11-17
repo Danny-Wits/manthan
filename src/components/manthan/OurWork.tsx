@@ -63,8 +63,8 @@ export const OurWork: React.FC<OurWorkProps> = ({ onSelectTopicForBooking }) => 
             <span>{MANTHAN_CONTENT.ourWork.sectionTitle}</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6">
-            Connecting <span className="text-yellow-400">Knowledge</span>, <span className="text-white">Dialogue</span> &amp; <span className="text-yellow-400">Creative Expression</span>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-wide mb-6">
+            Connecting <span className="text-yellow-400 font-serif italic font-normal">Knowledge</span>, <span className="text-white">Dialogue</span> &amp; <span className="text-yellow-400 font-serif italic font-normal">Creative Expression</span>
           </h2>
 
           <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">

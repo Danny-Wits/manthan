@@ -15,8 +15,8 @@ export const About: React.FC = () => {
               <span>{MANTHAN_CONTENT.about.sectionTitle}</span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-6">
-              A Space Where <span className="text-yellow-400">Curiosity Meets Culture</span>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-wide mb-6">
+              A Space Where <span className="font-serif italic text-yellow-400 font-normal">Curiosity Meets Culture</span>
             </h2>
 
             <div className="space-y-4 text-slate-300 text-base sm:text-lg leading-relaxed mb-8">

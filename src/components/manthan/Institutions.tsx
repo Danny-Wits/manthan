@@ -102,7 +102,7 @@ export const Institutions: React.FC<InstitutionsProps> = ({ selectedTopicTitle }
             <span>{MANTHAN_CONTENT.institutions.sectionTitle}</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-wide mb-4">
             Bringing <span className="text-yellow-400">MANTHAN</span> to Institutions
           </h2>
 

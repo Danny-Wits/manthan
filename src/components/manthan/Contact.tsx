@@ -26,8 +26,8 @@ export const Contact: React.FC = () => {
             <span>{MANTHAN_CONTENT.contact.sectionTitle}</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
-            Let&apos;s <span className="text-yellow-400">Collaborate</span> &amp; Inquire Together
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-wide mb-4">
+            Let&apos;s <span className="text-yellow-400 font-serif italic font-normal">Collaborate</span> &amp; Inquire Together
           </h2>
 
           <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-xl mx-auto">

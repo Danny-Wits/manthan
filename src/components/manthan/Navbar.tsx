@@ -65,11 +65,11 @@ export const Navbar: React.FC = () => {
 
           <div className="flex flex-col">
             <div className="flex items-center gap-2">
-              <span className="font-sans text-lg sm:text-xl font-black tracking-[0.2em] text-[#FFFDF5] group-hover:text-yellow-400 transition-colors uppercase">
+              <span className="font-display text-lg sm:text-xl font-bold tracking-[0.22em] text-[#FFFDF5] group-hover:text-yellow-400 transition-colors uppercase">
                 MANTHAN
               </span>
             </div>
-            <span className="text-[11px] text-yellow-400/80 font-serif italic hidden sm:inline -mt-0.5">
+            <span className="text-[11px] text-yellow-400/90 font-serif italic hidden sm:inline -mt-0.5">
               Celebrating the Art of Being Human
             </span>
           </div>
