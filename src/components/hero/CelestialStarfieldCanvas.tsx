@@ -92,11 +92,76 @@ export const CelestialStarfieldCanvas: React.FC<CelestialStarfieldProps> = ({
       return new THREE.CanvasTexture(canvas);
     };
 
+    const createSupergiantTexture = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = 256;
+      canvas.height = 256;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return null;
+
+      const cx = 128;
+      const cy = 128;
+
+      // 1. Soft cosmic corona halo
+      const coronaGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, 95);
+      coronaGrad.addColorStop(0, 'rgba(255, 253, 245, 0.98)');
+      coronaGrad.addColorStop(0.12, 'rgba(254, 240, 138, 0.85)');
+      coronaGrad.addColorStop(0.3, 'rgba(250, 204, 21, 0.45)');
+      coronaGrad.addColorStop(0.6, 'rgba(234, 179, 8, 0.15)');
+      coronaGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      ctx.fillStyle = coronaGrad;
+      ctx.fillRect(0, 0, 256, 256);
+
+      // 2. Blazing hot diamond core
+      const coreGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, 26);
+      coreGrad.addColorStop(0, 'rgba(255, 255, 255, 1)');
+      coreGrad.addColorStop(0.45, 'rgba(255, 255, 255, 0.95)');
+      coreGrad.addColorStop(0.8, 'rgba(254, 240, 138, 0.7)');
+      coreGrad.addColorStop(1, 'rgba(250, 204, 21, 0)');
+      ctx.fillStyle = coreGrad;
+      ctx.fillRect(cx - 26, cy - 26, 52, 52);
+
+      // 3. Primary Horizontal & Vertical Diffraction Spikes
+      const hSpike = ctx.createLinearGradient(0, cy, 256, cy);
+      hSpike.addColorStop(0, 'rgba(255, 255, 255, 0)');
+      hSpike.addColorStop(0.35, 'rgba(254, 240, 138, 0.35)');
+      hSpike.addColorStop(0.5, 'rgba(255, 255, 255, 1)');
+      hSpike.addColorStop(0.65, 'rgba(254, 240, 138, 0.35)');
+      hSpike.addColorStop(1, 'rgba(255, 255, 255, 0)');
+      ctx.fillStyle = hSpike;
+      ctx.fillRect(0, cy - 1.5, 256, 3);
+
+      const vSpike = ctx.createLinearGradient(cx, 0, cx, 256);
+      vSpike.addColorStop(0, 'rgba(255, 255, 255, 0)');
+      vSpike.addColorStop(0.35, 'rgba(254, 240, 138, 0.35)');
+      vSpike.addColorStop(0.5, 'rgba(255, 255, 255, 1)');
+      vSpike.addColorStop(0.65, 'rgba(254, 240, 138, 0.35)');
+      vSpike.addColorStop(1, 'rgba(255, 255, 255, 0)');
+      ctx.fillStyle = vSpike;
+      ctx.fillRect(cx - 1.5, 0, 3, 256);
+
+      // 4. Secondary Diagonal Spikes (45-degree angle)
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.rotate(Math.PI / 4);
+      const diagSpike = ctx.createLinearGradient(-90, 0, 90, 0);
+      diagSpike.addColorStop(0, 'rgba(255, 255, 255, 0)');
+      diagSpike.addColorStop(0.5, 'rgba(255, 255, 255, 0.7)');
+      diagSpike.addColorStop(1, 'rgba(255, 255, 255, 0)');
+      ctx.fillStyle = diagSpike;
+      ctx.fillRect(-90, -1, 180, 2);
+      ctx.fillRect(-1, -90, 2, 180);
+      ctx.restore();
+
+      return new THREE.CanvasTexture(canvas);
+    };
+
     const starTexture = createStarTexture();
     const beaconTexture = createBeaconStarTexture();
+    const supergiantTexture = createSupergiantTexture();
 
     // --- Star Layer 1: Distant Background Micro-Stars (Authentic Stellar Warm White/Yellow) ---
-    const DISTANT_COUNT = 2400;
+    const DISTANT_COUNT = 3800;
     const distantGeo = new THREE.BufferGeometry();
     const distantPos = new Float32Array(DISTANT_COUNT * 3);
     const distantColors = new Float32Array(DISTANT_COUNT * 3);
@@ -114,7 +179,7 @@ export const CelestialStarfieldCanvas: React.FC<CelestialStarfieldProps> = ({
 
     for (let i = 0; i < DISTANT_COUNT; i++) {
       const i3 = i * 3;
-      distantPos[i3] = (Math.random() - 0.5) * 1100;
+      distantPos[i3] = (Math.random() - 0.5) * 1150;
       distantPos[i3 + 1] = (Math.random() - 0.5) * 2200;
       distantPos[i3 + 2] = (Math.random() - 0.5) * 600 - 100;
 
@@ -128,19 +193,19 @@ export const CelestialStarfieldCanvas: React.FC<CelestialStarfieldProps> = ({
     distantGeo.setAttribute('color', new THREE.BufferAttribute(distantColors, 3));
 
     const distantMat = new THREE.PointsMaterial({
-      size: 2.2,
+      size: 2.4,
       map: starTexture || undefined,
       transparent: true,
       vertexColors: true,
       blending: THREE.AdditiveBlending,
       depthWrite: false,
-      opacity: 0.85,
+      opacity: 0.88,
     });
     const distantMesh = new THREE.Points(distantGeo, distantMat);
     scene.add(distantMesh);
 
-    // --- Star Layer 2: Midground Twinkling Stars (450 stars spanning full page height) ---
-    const MID_COUNT = 450;
+    // --- Star Layer 2: Midground Twinkling Stars (850 stars spanning full page height) ---
+    const MID_COUNT = 850;
     const midGeo = new THREE.BufferGeometry();
     const midPos = new Float32Array(MID_COUNT * 3);
     const midColors = new Float32Array(MID_COUNT * 3);
@@ -150,8 +215,8 @@ export const CelestialStarfieldCanvas: React.FC<CelestialStarfieldProps> = ({
 
     for (let i = 0; i < MID_COUNT; i++) {
       const i3 = i * 3;
-      midPos[i3] = (Math.random() - 0.5) * 950;
-      midPos[i3 + 1] = (Math.random() - 0.5) * 2000;
+      midPos[i3] = (Math.random() - 0.5) * 1000;
+      midPos[i3 + 1] = (Math.random() - 0.5) * 2100;
       midPos[i3 + 2] = (Math.random() - 0.5) * 450 + 40;
 
       const col = starPalette[Math.floor(Math.random() * starPalette.length)];
@@ -170,7 +235,7 @@ export const CelestialStarfieldCanvas: React.FC<CelestialStarfieldProps> = ({
     midGeo.setAttribute('color', new THREE.BufferAttribute(midColors, 3));
 
     const midMat = new THREE.PointsMaterial({
-      size: 5.5,
+      size: 6.0,
       map: starTexture || undefined,
       transparent: true,
       vertexColors: true,
@@ -180,16 +245,16 @@ export const CelestialStarfieldCanvas: React.FC<CelestialStarfieldProps> = ({
     const midMesh = new THREE.Points(midGeo, midMat);
     scene.add(midMesh);
 
-    // --- Star Layer 3: Prominent Beacon Stars (48 stars across all sections) ---
-    const BEACON_COUNT = 48;
+    // --- Star Layer 3: Prominent Beacon Stars (84 stars with 4-point cross diffraction) ---
+    const BEACON_COUNT = 84;
     const beaconGeo = new THREE.BufferGeometry();
     const beaconPos = new Float32Array(BEACON_COUNT * 3);
     const beaconColors = new Float32Array(BEACON_COUNT * 3);
 
     for (let i = 0; i < BEACON_COUNT; i++) {
       const i3 = i * 3;
-      beaconPos[i3] = (Math.random() - 0.5) * 900;
-      beaconPos[i3 + 1] = (Math.random() - 0.5) * 1800;
+      beaconPos[i3] = (Math.random() - 0.5) * 950;
+      beaconPos[i3 + 1] = (Math.random() - 0.5) * 1900;
       beaconPos[i3 + 2] = (Math.random() - 0.5) * 250 + 80;
 
       const col = i % 2 === 0 ? new THREE.Color('#FFFFFF') : new THREE.Color('#FACC15');
@@ -202,7 +267,7 @@ export const CelestialStarfieldCanvas: React.FC<CelestialStarfieldProps> = ({
     beaconGeo.setAttribute('color', new THREE.BufferAttribute(beaconColors, 3));
 
     const beaconMat = new THREE.PointsMaterial({
-      size: 14,
+      size: 16,
       map: beaconTexture || undefined,
       transparent: true,
       vertexColors: true,
@@ -211,6 +276,55 @@ export const CelestialStarfieldCanvas: React.FC<CelestialStarfieldProps> = ({
     });
     const beaconMesh = new THREE.Points(beaconGeo, beaconMat);
     scene.add(beaconMesh);
+
+    // --- Star Layer 4: Radiant Stellar Supergiants (36 prominent, blazing stars) ---
+    const SUPERGIANT_COUNT = 36;
+    const superGeo = new THREE.BufferGeometry();
+    const superPos = new Float32Array(SUPERGIANT_COUNT * 3);
+    const superColors = new Float32Array(SUPERGIANT_COUNT * 3);
+    const superInitialColors = new Float32Array(SUPERGIANT_COUNT * 3);
+    const superPhases = new Float32Array(SUPERGIANT_COUNT);
+    const superSpeeds = new Float32Array(SUPERGIANT_COUNT);
+
+    const superPalette = [
+      new THREE.Color('#FFFFFF'), // Sirius Diamond White
+      new THREE.Color('#FFFDF5'), // Vega Warm White
+      new THREE.Color('#FEF08A'), // Capella Gold
+      new THREE.Color('#FACC15'), // Radiant Solar Yellow
+      new THREE.Color('#FBBF24'), // Warm Gold Star
+    ];
+
+    for (let i = 0; i < SUPERGIANT_COUNT; i++) {
+      const i3 = i * 3;
+      superPos[i3] = (Math.random() - 0.5) * 880;
+      superPos[i3 + 1] = (Math.random() - 0.5) * 1950;
+      superPos[i3 + 2] = (Math.random() - 0.5) * 180 + 90; // High depth visibility
+
+      const col = superPalette[i % superPalette.length];
+      superColors[i3] = col.r;
+      superColors[i3 + 1] = col.g;
+      superColors[i3 + 2] = col.b;
+      superInitialColors[i3] = col.r;
+      superInitialColors[i3 + 1] = col.g;
+      superInitialColors[i3 + 2] = col.b;
+
+      superPhases[i] = Math.random() * Math.PI * 2;
+      superSpeeds[i] = 0.8 + Math.random() * 1.6;
+    }
+
+    superGeo.setAttribute('position', new THREE.BufferAttribute(superPos, 3));
+    superGeo.setAttribute('color', new THREE.BufferAttribute(superColors, 3));
+
+    const superMat = new THREE.PointsMaterial({
+      size: 30, // Large, prominent, blazing
+      map: supergiantTexture || undefined,
+      transparent: true,
+      vertexColors: true,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+    });
+    const superMesh = new THREE.Points(superGeo, superMat);
+    scene.add(superMesh);
 
     // --- Dynamic Shooting Star / Comet System with Click Spawning ---
     class ShootingStar {
@@ -464,6 +578,7 @@ export const CelestialStarfieldCanvas: React.FC<CelestialStarfieldProps> = ({
       distantMesh.rotation.y += 0.00015;
       midMesh.rotation.y += 0.00025;
       beaconMesh.rotation.y += 0.00025;
+      superMesh.rotation.y += 0.0002;
 
       // Twinkle effect on midground stars
       const colArr = midGeo.attributes.color.array as Float32Array;
@@ -477,6 +592,19 @@ export const CelestialStarfieldCanvas: React.FC<CelestialStarfieldProps> = ({
         colArr[i3 + 2] = midInitialColors[i3 + 2] * factor;
       }
       midGeo.attributes.color.needsUpdate = true;
+
+      // Luminous breathing pulse on radiant supergiants
+      const superColArr = superGeo.attributes.color.array as Float32Array;
+      for (let i = 0; i < SUPERGIANT_COUNT; i++) {
+        const i3 = i * 3;
+        const phase = superPhases[i];
+        const speed = superSpeeds[i];
+        const factor = 0.72 + 0.38 * Math.sin(time * speed + phase);
+        superColArr[i3] = superInitialColors[i3] * factor;
+        superColArr[i3 + 1] = superInitialColors[i3 + 1] * factor;
+        superColArr[i3 + 2] = superInitialColors[i3 + 2] * factor;
+      }
+      superGeo.attributes.color.needsUpdate = true;
 
       // Natural periodic shooting star spanning across currently viewed section
       meteorTimer++;
@@ -521,8 +649,11 @@ export const CelestialStarfieldCanvas: React.FC<CelestialStarfieldProps> = ({
       midMat.dispose();
       beaconGeo.dispose();
       beaconMat.dispose();
+      superGeo.dispose();
+      superMat.dispose();
       starTexture?.dispose();
       beaconTexture?.dispose();
+      supergiantTexture?.dispose();
       renderer.dispose();
       if (renderer.domElement && container.contains(renderer.domElement)) {
         container.removeChild(renderer.domElement);
