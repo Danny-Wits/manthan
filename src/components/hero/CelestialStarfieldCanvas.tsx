@@ -415,8 +415,8 @@ export const CelestialStarfieldCanvas: React.FC<CelestialStarfieldProps> = ({
         idleBurst.spawn(worldX, worldY, 0);
       }
 
-      // 3. Ethereal Chime
-      playStardustChime(660 + Math.random() * 440);
+      // 3. Ethereal Melodious Glass Chime (Soft & Harmonious)
+      playStardustChime();
     };
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });

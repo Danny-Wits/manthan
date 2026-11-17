@@ -54,7 +54,7 @@ export const Hero: React.FC<HeroProps> = () => {
       {/* 2. Ambient Celestial Gradient Mesh Glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] sm:w-[850px] h-[500px] sm:h-[650px] bg-gradient-to-tr from-indigo-600/20 via-purple-600/15 to-cyan-500/20 blur-[130px] rounded-full pointer-events-none z-0" />
 
-      {/* 3. Background Video (Shifted upward, higher opacity with soft feathered edges) */}
+      {/* 3. Seamlessly Blended Background Video (Organic Radial Mask & Dual-Axis Edge Fade) */}
       <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none z-0">
         <div className="relative -translate-y-16 sm:-translate-y-24 md:-translate-y-28 transition-transform duration-700">
           <video
@@ -64,12 +64,13 @@ export const Hero: React.FC<HeroProps> = () => {
             loop
             muted
             playsInline
-            className="h-[88vh] max-w-[560px] object-cover opacity-40 sm:opacity-45 rounded-3xl select-none shadow-[0_0_80px_rgba(34,211,238,0.12)]"
+            className="h-[88vh] max-w-[620px] object-cover opacity-45 sm:opacity-50 select-none [mask-image:radial-gradient(ellipse_60%_55%_at_50%_45%,black_20%,rgba(0,0,0,0.85)_48%,rgba(0,0,0,0.25)_72%,transparent_92%)] [-webkit-mask-image:radial-gradient(ellipse_60%_55%_at_50%_45%,black_20%,rgba(0,0,0,0.85)_48%,rgba(0,0,0,0.25)_72%,transparent_92%)]"
           />
-          {/* Subtle cosmic vignette gradient over the video to preserve text legibility */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0B1E]/40 via-transparent to-[#0A0B1E]/85 rounded-3xl pointer-events-none" />
+          {/* Dual-axis organic gradient fades to eliminate any perceptible boundary */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0B1E]/60 via-transparent to-[#0A0B1E]/95 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0A0B1E]/70 via-transparent to-[#0A0B1E]/70 pointer-events-none" />
         </div>
-        {/* Soft edge fade into cosmic background */}
+        {/* Full-bleed ambient vignette */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A0B1E]/40 via-transparent to-[#0A0B1E] pointer-events-none" />
       </div>
 

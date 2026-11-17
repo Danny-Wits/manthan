@@ -250,41 +250,61 @@ export const toggleCosmicSound = (): boolean => {
 
 export const isCosmicSoundEnabled = (): boolean => soundEnabled;
 
-export const playStardustChime = (freq = 880) => {
+// Melodious Stardust Pentatonic Chime Scale (Warm, harmonious glass harp tones)
+const STARDUST_NOTES = [587.33, 739.99, 880.00, 987.77, 1174.66, 1318.51];
+let stardustIndex = 0;
+
+export const playStardustChime = (customFreq?: number) => {
   if (!soundEnabled || !audioCtx || !masterGain) return;
 
   try {
     const now = audioCtx.currentTime;
 
-    // Dual-tone harmonic crystal chime for stardust / click interaction
-    const osc1 = audioCtx.createOscillator();
-    const osc2 = audioCtx.createOscillator();
+    // Cycle harmoniously through the pentatonic scale for gentle melodious progressions
+    const freq = customFreq || STARDUST_NOTES[stardustIndex % STARDUST_NOTES.length];
+    stardustIndex++;
+
+    // Soft crystalline bell tone using pure sine waves
+    const oscMain = audioCtx.createOscillator();
+    const oscOvertone = audioCtx.createOscillator();
     const chimeGain = audioCtx.createGain();
+    const filter = audioCtx.createBiquadFilter();
 
-    osc1.type = 'sine';
-    osc1.frequency.setValueAtTime(freq, now);
-    osc1.frequency.exponentialRampToValueAtTime(freq * 1.5, now + 0.4);
+    // Soft lowpass filter to remove harshness and create a velvety, round sound
+    filter.type = 'lowpass';
+    filter.frequency.setValueAtTime(2200, now);
+    filter.Q.setValueAtTime(0.7, now);
 
-    osc2.type = 'sine';
-    osc2.frequency.setValueAtTime(freq * 1.5, now);
-    osc2.frequency.exponentialRampToValueAtTime(freq * 2.0, now + 0.55);
+    oscMain.type = 'sine';
+    oscMain.frequency.setValueAtTime(freq, now);
 
-    chimeGain.gain.setValueAtTime(0.07, now);
-    chimeGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.7);
+    // Warm, delicate octave overtone (pure crystal resonance)
+    oscOvertone.type = 'sine';
+    oscOvertone.frequency.setValueAtTime(freq * 2, now);
 
-    osc1.connect(chimeGain);
-    osc2.connect(chimeGain);
+    // Ultra-soft, delicate gain envelope (reduced duration and gentle whispering intensity)
+    chimeGain.gain.setValueAtTime(0.0001, now);
+    chimeGain.gain.linearRampToValueAtTime(0.024, now + 0.015); // Soft gentle attack (no clicks)
+    chimeGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.38); // Short, soft decay (0.38s)
+
+    oscMain.connect(filter);
+    oscOvertone.connect(filter);
+    filter.connect(chimeGain);
 
     chimeGain.connect(masterGain);
     if (delayNodeL && delayNodeR) {
-      chimeGain.connect(delayNodeL);
-      chimeGain.connect(delayNodeR);
+      // Gentle send to space delay for an ethereal, dreamy tail
+      const sendGain = audioCtx.createGain();
+      sendGain.gain.value = 0.35;
+      chimeGain.connect(sendGain);
+      sendGain.connect(delayNodeL);
+      sendGain.connect(delayNodeR);
     }
 
-    osc1.start(now);
-    osc2.start(now);
-    osc1.stop(now + 0.75);
-    osc2.stop(now + 0.75);
+    oscMain.start(now);
+    oscOvertone.start(now);
+    oscMain.stop(now + 0.42);
+    oscOvertone.stop(now + 0.42);
   } catch {
     // Ignore audio context autoplay edge-cases
   }
