@@ -93,24 +93,20 @@ export const Institutions: React.FC<InstitutionsProps> = ({ selectedTopicTitle }
   };
 
   return (
-    <section id="institutions" className="py-24 sm:py-32 bg-[#0A0B1E] relative overflow-hidden">
-      <div className="absolute top-0 inset-x-0 gradient-divider" />
-      {/* Ambient Gradient Glow */}
-      <div className="absolute top-1/2 right-1/4 w-[550px] h-[550px] bg-gradient-to-tl from-purple-600/15 via-indigo-600/15 to-cyan-500/10 blur-[140px] rounded-full pointer-events-none" />
-
+    <section id="institutions" className="py-24 sm:py-32 bg-black relative overflow-hidden border-t border-yellow-500/15">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full badge-gradient text-xs font-mono font-semibold text-amber-300 uppercase tracking-wider mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#0D0D0D] border border-yellow-500/20 text-xs font-mono font-bold text-yellow-400 uppercase tracking-wider mb-4">
+            <Sparkles className="w-3.5 h-3.5 text-yellow-400" />
             <span>{MANTHAN_CONTENT.institutions.sectionTitle}</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
-            Bringing <span className="text-gradient-celestial">MANTHAN</span> to Institutions
+            Bringing <span className="text-yellow-400">MANTHAN</span> to Institutions
           </h2>
 
-          <p className="font-serif italic text-2xl sm:text-3xl text-gradient-gold font-normal mb-6">
+          <p className="font-serif italic text-2xl sm:text-3xl text-yellow-400 font-normal mb-6">
             &ldquo;{MANTHAN_CONTENT.institutions.subtitle}&rdquo;
           </p>
 
@@ -123,13 +119,13 @@ export const Institutions: React.FC<InstitutionsProps> = ({ selectedTopicTitle }
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           {MANTHAN_CONTENT.institutions.collaborationTypes.map((tier, idx) => {
             const icons = [
-              <School className="w-5 h-5 text-amber-400" key="1" />,
-              <GraduationCap className="w-5 h-5 text-amber-400" key="2" />,
-              <Award className="w-5 h-5 text-amber-400" key="3" />,
+              <School className="w-5 h-5 text-yellow-400" key="1" />,
+              <GraduationCap className="w-5 h-5 text-yellow-400" key="2" />,
+              <Award className="w-5 h-5 text-yellow-400" key="3" />,
             ];
             return (
               <div key={tier.title} className="theme-card p-6">
-                <div className="w-11 h-11 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-4">
+                <div className="w-11 h-11 rounded-xl bg-black border border-yellow-500/20 flex items-center justify-center mb-4">
                   {icons[idx]}
                 </div>
                 <h3 className="text-base font-bold text-white mb-2">
@@ -145,7 +141,7 @@ export const Institutions: React.FC<InstitutionsProps> = ({ selectedTopicTitle }
 
         {/* Main Booking Console with Soft Rounded Layout */}
         <div className="max-w-3xl mx-auto theme-card overflow-hidden">
-          <div className="px-6 py-5 sm:px-8 sm:py-6 bg-[#0F112B] border-b border-white/5 flex items-center justify-between">
+          <div className="px-6 py-5 sm:px-8 sm:py-6 bg-[#0E0E0E] border-b border-yellow-500/15 flex items-center justify-between">
             <div>
               <span className="text-xs font-mono tracking-wider text-amber-400 uppercase font-semibold">
                 Official Collaboration Portal
@@ -222,7 +218,7 @@ export const Institutions: React.FC<InstitutionsProps> = ({ selectedTopicTitle }
                       placeholder="e.g. Heritage School Jammu / University of Jammu"
                       value={formData.institutionName}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl bg-[#121538] border border-white/10 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-[#0A0A0A] border-yellow-500/20 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-yellow-400 transition-all"
                     />
                   </div>
 
@@ -235,7 +231,7 @@ export const Institutions: React.FC<InstitutionsProps> = ({ selectedTopicTitle }
                       name="institutionType"
                       value={formData.institutionType}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl bg-[#121538] border border-white/10 text-sm text-white focus:outline-none focus:border-amber-400 transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-[#0A0A0A] border-yellow-500/20 focus:border-yellow-400 transition-all"
                     >
                       <option>School (Secondary / Senior Secondary)</option>
                       <option>College / Undergraduate</option>
@@ -254,7 +250,7 @@ export const Institutions: React.FC<InstitutionsProps> = ({ selectedTopicTitle }
                       name="preferredTopic"
                       value={formData.preferredTopic}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl bg-[#121538] border border-white/10 text-sm text-white focus:outline-none focus:border-amber-400 transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-[#0A0A0A] border-yellow-500/20 focus:border-yellow-400 transition-all"
                     >
                       {MANTHAN_CONTENT.workshops.map((w) => (
                         <option key={w.id} value={w.title}>
@@ -279,7 +275,7 @@ export const Institutions: React.FC<InstitutionsProps> = ({ selectedTopicTitle }
                       placeholder="e.g. Prof. Sharma / Dr. Verma / Mrs. Gupta"
                       value={formData.contactPerson}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl bg-[#121538] border border-white/10 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-[#0A0A0A] border-yellow-500/20 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-yellow-400 transition-all"
                     />
                   </div>
 
@@ -294,7 +290,7 @@ export const Institutions: React.FC<InstitutionsProps> = ({ selectedTopicTitle }
                       placeholder="e.g. Principal / HOD Psychology / Cultural Dean"
                       value={formData.designation}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl bg-[#121538] border border-white/10 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-[#0A0A0A] border-yellow-500/20 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-yellow-400 transition-all"
                     />
                   </div>
 
@@ -310,7 +306,7 @@ export const Institutions: React.FC<InstitutionsProps> = ({ selectedTopicTitle }
                       placeholder="e.g. principal@institution.edu.in"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl bg-[#121538] border border-white/10 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-[#0A0A0A] border-yellow-500/20 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-yellow-400 transition-all"
                     />
                   </div>
 
@@ -326,7 +322,7 @@ export const Institutions: React.FC<InstitutionsProps> = ({ selectedTopicTitle }
                       placeholder="e.g. +91 98765 43210"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl bg-[#121538] border border-white/10 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-[#0A0A0A] border-yellow-500/20 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-yellow-400 transition-all"
                     />
                   </div>
 
@@ -339,7 +335,7 @@ export const Institutions: React.FC<InstitutionsProps> = ({ selectedTopicTitle }
                       name="cohortSize"
                       value={formData.cohortSize}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl bg-[#121538] border border-white/10 text-sm text-white focus:outline-none focus:border-amber-400 transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-[#0A0A0A] border-yellow-500/20 focus:border-yellow-400 transition-all"
                     >
                       <option>30 - 60 Students (Classroom Workshop)</option>
                       <option>60 - 150 Students (Auditorium Session)</option>
@@ -359,7 +355,7 @@ export const Institutions: React.FC<InstitutionsProps> = ({ selectedTopicTitle }
                       placeholder="e.g. Next month / Flexible / Dec 2026"
                       value={formData.preferredTimeline}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl bg-[#121538] border border-white/10 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-[#0A0A0A] border-yellow-500/20 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-yellow-400 transition-all"
                     />
                   </div>
                 </div>
@@ -375,7 +371,7 @@ export const Institutions: React.FC<InstitutionsProps> = ({ selectedTopicTitle }
                     placeholder="Share any specific needs, cohort year group, or custom themes you would like included..."
                     value={formData.notes}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl bg-[#121538] border border-white/10 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition-all resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-[#0A0A0A] border-yellow-500/20 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-yellow-400 transition-all resize-none"
                   />
                 </div>
 

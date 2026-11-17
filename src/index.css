@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: #0A0B1E;
+  background-color: #000000;
   color: #F8FAFC;
   font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   overflow-x: hidden;
@@ -20,101 +20,71 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
 }
 
-/* Celestial Gradient Theme Utilities */
-.text-gradient-celestial {
-  background: linear-gradient(135deg, #FFFFFF 0%, #FFF3DD 25%, #FDE68A 55%, #7DD3FC 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+/* Warm Yellow & Jet Black Theme System (No Gradients) */
 
-.text-gradient-gold {
-  background: linear-gradient(135deg, #FEF08A 0%, #F59E0B 50%, #D97706 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.text-gradient-vortex {
-  background: linear-gradient(135deg, #C084FC 0%, #FDE68A 50%, #38BDF8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.badge-gradient {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(245, 158, 11, 0.12) 50%, rgba(34, 211, 238, 0.15) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
-}
-
-.gradient-divider {
-  background: linear-gradient(90deg, transparent 0%, rgba(99, 102, 241, 0.25) 20%, rgba(245, 158, 11, 0.4) 50%, rgba(34, 211, 238, 0.25) 80%, transparent 100%);
-  height: 1px;
-}
-
-/* Soft, Clean, Rounded Celestial Cards with Subtle Depth Gradients */
+/* Distinctive Jet Black Cards with Warm Yellow Accents */
 .theme-card {
-  background: linear-gradient(145deg, rgba(20, 23, 65, 0.7) 0%, rgba(12, 14, 40, 0.85) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: #0A0A0A;
+  border: 1px solid rgba(250, 204, 21, 0.15);
   border-radius: 1.25rem;
-  backdrop-filter: blur(16px);
   transition: all 0.25s ease-in-out;
 }
 
 .theme-card:hover {
-  border-color: rgba(245, 158, 11, 0.35);
-  background: linear-gradient(145deg, rgba(28, 32, 88, 0.85) 0%, rgba(16, 19, 52, 0.95) 100%);
-  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.5), 0 0 25px rgba(245, 158, 11, 0.12);
+  border-color: rgba(250, 204, 21, 0.45);
+  background-color: #111111;
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.9), 0 0 25px rgba(250, 204, 21, 0.08);
   transform: translateY(-2px);
 }
 
-/* Smooth Rounded Gradient Buttons */
+/* Solid Bold Warm Yellow Primary Button */
 .btn-primary {
-  background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 50%, #EAB308 100%);
-  color: #0A0B1E;
-  font-weight: 700;
+  background-color: #FACC15;
+  color: #000000;
+  font-weight: 800;
   border-radius: 9999px;
-  box-shadow: 0 4px 20px -2px rgba(245, 158, 11, 0.4);
-  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 20px -2px rgba(250, 204, 21, 0.4);
+  transition: all 0.15s ease-in-out;
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #FBBF24 0%, #FCD34D 50%, #F59E0B 100%);
-  box-shadow: 0 6px 25px rgba(245, 158, 11, 0.55);
+  background-color: #EAB308;
+  box-shadow: 0 6px 28px rgba(250, 204, 21, 0.6);
   transform: translateY(-1px);
 }
 
+/* Solid Dark Secondary Button with Warm Yellow Border */
 .btn-secondary {
-  background: linear-gradient(145deg, rgba(20, 23, 62, 0.85) 0%, rgba(14, 16, 44, 0.95) 100%);
-  color: #EDD8BD;
-  border: 1px solid rgba(245, 158, 11, 0.25);
-  font-weight: 600;
+  background-color: #0D0D0D;
+  color: #FACC15;
+  border: 1px solid rgba(250, 204, 21, 0.35);
+  font-weight: 700;
   border-radius: 9999px;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  transition: all 0.2s ease-in-out;
+  transition: all 0.15s ease-in-out;
 }
 
 .btn-secondary:hover {
-  background: linear-gradient(145deg, rgba(30, 34, 85, 0.9) 0%, rgba(20, 23, 62, 0.98) 100%);
-  border-color: rgba(245, 158, 11, 0.55);
+  background-color: #171717;
+  border-color: #FACC15;
   color: #FFFFFF;
-  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.2);
+  box-shadow: 0 0 20px rgba(250, 204, 21, 0.25);
   transform: translateY(-1px);
 }
 
-/* Star-themed Scrollbar */
+/* Star-themed Pure Black Scrollbar */
 ::-webkit-scrollbar {
   width: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0A0B1E;
+  background: #000000;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #181B3E;
+  background: #1C1C1C;
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #252A5E;
+  background: #FACC15;
 }

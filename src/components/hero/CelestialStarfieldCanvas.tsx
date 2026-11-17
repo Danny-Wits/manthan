@@ -37,7 +37,7 @@ export const CelestialStarfieldCanvas: React.FC<CelestialStarfieldProps> = ({
     renderer.setClearColor(0x000000, 0);
     container.appendChild(renderer.domElement);
 
-    // --- Star Textures ---
+    // --- Star Textures (Bright Warm White with Actual Warm Stellar Colors) ---
     const createStarTexture = () => {
       const canvas = document.createElement('canvas');
       canvas.width = 64;
@@ -47,9 +47,9 @@ export const CelestialStarfieldCanvas: React.FC<CelestialStarfieldProps> = ({
 
       const grad = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
       grad.addColorStop(0, 'rgba(255, 255, 255, 1)');
-      grad.addColorStop(0.15, 'rgba(255, 245, 220, 0.95)');
-      grad.addColorStop(0.4, 'rgba(165, 243, 252, 0.5)');
-      grad.addColorStop(0.7, 'rgba(56, 189, 248, 0.15)');
+      grad.addColorStop(0.15, 'rgba(255, 253, 242, 0.98)');
+      grad.addColorStop(0.4, 'rgba(254, 240, 138, 0.75)');
+      grad.addColorStop(0.7, 'rgba(250, 204, 21, 0.3)');
       grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
 
       ctx.fillStyle = grad;
@@ -69,22 +69,22 @@ export const CelestialStarfieldCanvas: React.FC<CelestialStarfieldProps> = ({
 
       const coreGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, 30);
       coreGrad.addColorStop(0, 'rgba(255, 255, 255, 1)');
-      coreGrad.addColorStop(0.2, 'rgba(253, 224, 71, 0.9)');
-      coreGrad.addColorStop(0.5, 'rgba(56, 189, 248, 0.35)');
+      coreGrad.addColorStop(0.2, 'rgba(255, 253, 240, 0.95)');
+      coreGrad.addColorStop(0.5, 'rgba(250, 204, 21, 0.45)');
       coreGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
       ctx.fillStyle = coreGrad;
       ctx.fillRect(0, 0, 128, 128);
 
       const hGrad = ctx.createLinearGradient(0, cy, 128, cy);
       hGrad.addColorStop(0, 'rgba(255, 255, 255, 0)');
-      hGrad.addColorStop(0.5, 'rgba(255, 255, 255, 0.85)');
+      hGrad.addColorStop(0.5, 'rgba(255, 255, 255, 0.95)');
       hGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
       ctx.fillStyle = hGrad;
       ctx.fillRect(0, cy - 1, 128, 2);
 
       const vGrad = ctx.createLinearGradient(cx, 0, cx, 128);
       vGrad.addColorStop(0, 'rgba(255, 255, 255, 0)');
-      vGrad.addColorStop(0.5, 'rgba(255, 255, 255, 0.85)');
+      vGrad.addColorStop(0.5, 'rgba(255, 255, 255, 0.95)');
       vGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
       ctx.fillStyle = vGrad;
       ctx.fillRect(cx - 1, 0, 2, 128);
@@ -95,19 +95,21 @@ export const CelestialStarfieldCanvas: React.FC<CelestialStarfieldProps> = ({
     const starTexture = createStarTexture();
     const beaconTexture = createBeaconStarTexture();
 
-    // --- Star Layer 1: Distant Background Micro-Stars (1,800 stars) ---
+    // --- Star Layer 1: Distant Background Micro-Stars (Authentic Stellar Warm White/Yellow) ---
     const DISTANT_COUNT = 1800;
     const distantGeo = new THREE.BufferGeometry();
     const distantPos = new Float32Array(DISTANT_COUNT * 3);
     const distantColors = new Float32Array(DISTANT_COUNT * 3);
 
     const starPalette = [
-      new THREE.Color('#FFFFFF'),
-      new THREE.Color('#E0F2FE'),
-      new THREE.Color('#FEF08A'),
-      new THREE.Color('#BAE6FD'),
-      new THREE.Color('#E9D5FF'),
-      new THREE.Color('#FDE047'),
+      new THREE.Color('#FFFFFF'), // Sirius Bright White
+      new THREE.Color('#FFFDF5'), // Vega Warm White
+      new THREE.Color('#FFF8E7'), // Stellar Ivory
+      new THREE.Color('#FEF9C3'), // Solar Pale Yellow
+      new THREE.Color('#FEF08A'), // Warm Star Yellow
+      new THREE.Color('#FACC15'), // Radiant Starlight Yellow
+      new THREE.Color('#FBBF24'), // Warm Gold Star
+      new THREE.Color('#F59E0B'), // Warm Amber Giant
     ];
 
     for (let i = 0; i < DISTANT_COUNT; i++) {
@@ -190,7 +192,7 @@ export const CelestialStarfieldCanvas: React.FC<CelestialStarfieldProps> = ({
       beaconPos[i3 + 1] = (Math.random() - 0.5) * 400;
       beaconPos[i3 + 2] = (Math.random() - 0.5) * 200 + 80;
 
-      const col = i % 2 === 0 ? new THREE.Color('#FDE047') : new THREE.Color('#38BDF8');
+      const col = i % 2 === 0 ? new THREE.Color('#FFFFFF') : new THREE.Color('#FACC15');
       beaconColors[i3] = col.r;
       beaconColors[i3 + 1] = col.g;
       beaconColors[i3 + 2] = col.b;
@@ -316,7 +318,7 @@ export const CelestialStarfieldCanvas: React.FC<CelestialStarfieldProps> = ({
           transparent: true,
           blending: THREE.AdditiveBlending,
           depthWrite: false,
-          color: 0x60a5fa,
+          color: 0xfacc15,
           opacity: 0,
         });
         this.points = new THREE.Points(this.geometry, mat);

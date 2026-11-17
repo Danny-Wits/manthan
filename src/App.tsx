@@ -42,7 +42,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="bg-[#080811] text-[#F8FAFC] min-h-screen selection:bg-amber-400/30 selection:text-white font-sans relative antialiased">
+    <div className="bg-black text-[#F8FAFC] min-h-screen selection:bg-yellow-400 selection:text-black font-sans relative antialiased">
       {/* 1. Header Navigation */}
       <Navbar />
 

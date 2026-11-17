@@ -17,21 +17,17 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-24 sm:py-32 bg-[#0A0B1E] relative overflow-hidden">
-      <div className="absolute top-0 inset-x-0 gradient-divider" />
-      {/* Ambient Gradient Glow */}
-      <div className="absolute top-1/2 left-1/3 w-[500px] h-[500px] bg-gradient-to-tr from-cyan-600/15 via-indigo-600/15 to-purple-600/10 blur-[130px] rounded-full pointer-events-none" />
-
+    <section id="contact" className="py-24 sm:py-32 bg-black relative overflow-hidden border-t border-yellow-500/15">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full badge-gradient text-xs font-mono font-semibold text-amber-300 uppercase tracking-wider mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#0D0D0D] border border-yellow-500/20 text-xs font-mono font-bold text-yellow-400 uppercase tracking-wider mb-4">
+            <Sparkles className="w-3.5 h-3.5 text-yellow-400" />
             <span>{MANTHAN_CONTENT.contact.sectionTitle}</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
-            Let&apos;s <span className="text-gradient-celestial">Collaborate</span> &amp; Inquire Together
+            Let&apos;s <span className="text-yellow-400">Collaborate</span> &amp; Inquire Together
           </h2>
 
           <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-xl mx-auto">
@@ -48,21 +44,21 @@ export const Contact: React.FC = () => {
               href={`tel:${MANTHAN_CONTENT.contact.phone}`}
               className="theme-card p-6 flex items-start gap-4 group cursor-pointer block"
             >
-              <div className="w-11 h-11 rounded-xl bg-white/[0.03] border border-white/5 text-amber-400 flex items-center justify-center flex-shrink-0">
+              <div className="w-11 h-11 rounded-xl bg-white/[0.03] border border-white/5 text-yellow-400 flex items-center justify-center flex-shrink-0">
                 <Phone className="w-5 h-5" />
               </div>
               <div className="flex-1">
                 <span className="text-[11px] font-mono font-semibold uppercase text-slate-500 tracking-wider block">
                   Direct Phone / Inquiry
                 </span>
-                <p className="text-lg font-bold text-white group-hover:text-amber-400 transition-colors mt-0.5">
+                <p className="text-lg font-bold text-white group-hover:text-yellow-400 transition-colors mt-0.5">
                   {MANTHAN_CONTENT.contact.phoneFormatted}
                 </p>
                 <p className="text-xs text-slate-400 mt-1 font-sans">
                   Call or WhatsApp for institutional coordination
                 </p>
               </div>
-              <ArrowUpRight className="w-4 h-4 text-slate-600 group-hover:text-amber-400 transition-colors" />
+              <ArrowUpRight className="w-4 h-4 text-slate-600 group-hover:text-yellow-400 transition-colors" />
             </a>
 
             {/* Email Card */}
@@ -70,21 +66,21 @@ export const Contact: React.FC = () => {
               href={`mailto:${MANTHAN_CONTENT.contact.email}`}
               className="theme-card p-6 flex items-start gap-4 group cursor-pointer block"
             >
-              <div className="w-11 h-11 rounded-xl bg-white/[0.03] border border-white/5 text-amber-400 flex items-center justify-center flex-shrink-0">
+              <div className="w-11 h-11 rounded-xl bg-white/[0.03] border border-white/5 text-yellow-400 flex items-center justify-center flex-shrink-0">
                 <Mail className="w-5 h-5" />
               </div>
               <div className="flex-1">
                 <span className="text-[11px] font-mono font-semibold uppercase text-slate-500 tracking-wider block">
                   Official Email
                 </span>
-                <p className="text-base sm:text-lg font-bold text-white group-hover:text-amber-400 transition-colors mt-0.5 break-all">
+                <p className="text-base sm:text-lg font-bold text-white group-hover:text-yellow-400 transition-colors mt-0.5 break-all">
                   {MANTHAN_CONTENT.contact.email}
                 </p>
                 <p className="text-xs text-slate-400 mt-1 font-sans">
                   Proposals, workshop briefs & general correspondence
                 </p>
               </div>
-              <ArrowUpRight className="w-4 h-4 text-slate-600 group-hover:text-amber-400 transition-colors" />
+              <ArrowUpRight className="w-4 h-4 text-slate-600 group-hover:text-yellow-400 transition-colors" />
             </a>
 
             {/* WhatsApp Quick Connect */}
@@ -114,7 +110,7 @@ export const Contact: React.FC = () => {
             {/* Geographic Scope */}
             <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/5 text-xs text-slate-300 space-y-2">
               <div className="flex items-center gap-2 text-white font-bold">
-                <MapPin className="w-4 h-4 text-amber-400" />
+                <MapPin className="w-4 h-4 text-yellow-400" />
                 <span>Geographic Scope & Delivery</span>
               </div>
               <p className="text-xs text-slate-400 leading-relaxed font-sans">
@@ -164,7 +160,7 @@ export const Contact: React.FC = () => {
                       placeholder="e.g. Ananya Sharma"
                       value={msgForm.name}
                       onChange={(e) => setMsgForm({ ...msgForm, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-[#121538] border border-white/10 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400"
+                      className="w-full px-4 py-3 rounded-xl bg-[#0A0A0A] border border-yellow-500/20 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-yellow-400"
                     />
                   </div>
 
@@ -178,7 +174,7 @@ export const Contact: React.FC = () => {
                       placeholder="e.g. ananya@gmail.com"
                       value={msgForm.email}
                       onChange={(e) => setMsgForm({ ...msgForm, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-[#121538] border border-white/10 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400"
+                      className="w-full px-4 py-3 rounded-xl bg-[#0A0A0A] border border-yellow-500/20 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-yellow-400"
                     />
                   </div>
                 </div>
@@ -193,7 +189,7 @@ export const Contact: React.FC = () => {
                     placeholder="e.g. Inquiry regarding Youth Cultural Exchange"
                     value={msgForm.subject}
                     onChange={(e) => setMsgForm({ ...msgForm, subject: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-[#121538] border border-white/10 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400"
+                    className="w-full px-4 py-3 rounded-xl bg-[#0A0A0A] border border-yellow-500/20 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-yellow-400"
                   />
                 </div>
 
@@ -207,7 +203,7 @@ export const Contact: React.FC = () => {
                     placeholder="Tell us what you'd like to explore, discuss, or inquire about..."
                     value={msgForm.message}
                     onChange={(e) => setMsgForm({ ...msgForm, message: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-[#121538] border border-white/10 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-[#0A0A0A] border border-yellow-500/20 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-yellow-400 resize-none"
                   />
                 </div>
 
