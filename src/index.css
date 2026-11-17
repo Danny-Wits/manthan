@@ -47,6 +47,11 @@ h4, h5, h6 {
   filter: sepia(100%) saturate(380%) hue-rotate(5deg) brightness(1.1) contrast(1.12) drop-shadow(0 0 12px rgba(250, 204, 21, 0.45));
 }
 
+/* Warm Solar Yellow Video Filter: Harmonizes cosmic video into warm yellow & black */
+.video-yellow-filter {
+  filter: sepia(100%) hue-rotate(5deg) saturate(380%) contrast(125%) brightness(95%);
+}
+
 /* Ethereal Floating Space Surfaces (No Strict Borders — Text Floats in Deep Space) */
 .theme-card {
   background: rgba(10, 10, 10, 0.45);

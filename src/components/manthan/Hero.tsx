@@ -47,7 +47,7 @@ export const Hero: React.FC<HeroProps> = () => {
       id="home"
       className="relative w-full min-h-screen pt-32 pb-24 flex items-center justify-center overflow-hidden bg-transparent"
     >
-      {/* 1. Seamlessly Blended Background Video (Jet Black Screen Blend & Feathered Radial Mask) */}
+      {/* 1. Seamlessly Blended Background Video with Solar Yellow Filter & Screen Blend */}
       <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none z-0">
         <div className="relative -translate-y-16 sm:-translate-y-24 md:-translate-y-28 transition-transform duration-700">
           <video
@@ -57,8 +57,10 @@ export const Hero: React.FC<HeroProps> = () => {
             loop
             muted
             playsInline
-            className="h-[88vh] max-w-[620px] object-cover opacity-60 sm:opacity-65 select-none mix-blend-screen contrast-125 brightness-95 [mask-image:radial-gradient(ellipse_60%_55%_at_50%_45%,black_20%,rgba(0,0,0,0.85)_48%,rgba(0,0,0,0.25)_72%,transparent_92%)] [-webkit-mask-image:radial-gradient(ellipse_60%_55%_at_50%_45%,black_20%,rgba(0,0,0,0.85)_48%,rgba(0,0,0,0.25)_72%,transparent_92%)]"
+            className="h-[88vh] max-w-[620px] object-cover opacity-70 sm:opacity-75 select-none mix-blend-screen video-yellow-filter [mask-image:radial-gradient(ellipse_60%_55%_at_50%_45%,black_20%,rgba(0,0,0,0.85)_48%,rgba(0,0,0,0.25)_72%,transparent_92%)] [-webkit-mask-image:radial-gradient(ellipse_60%_55%_at_50%_45%,black_20%,rgba(0,0,0,0.85)_48%,rgba(0,0,0,0.25)_72%,transparent_92%)]"
           />
+          {/* Subtle warm golden aura behind figure */}
+          <div className="absolute inset-0 bg-yellow-400/10 mix-blend-screen pointer-events-none rounded-full blur-3xl scale-75" />
           {/* Jet black edge dissolves */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60 pointer-events-none" />
