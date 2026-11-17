@@ -64,10 +64,10 @@ export const Hero: React.FC<HeroProps> = () => {
             loop
             muted
             playsInline
-            className="h-[88vh] max-w-[560px] object-cover opacity-65 sm:opacity-75 rounded-3xl select-none shadow-[0_0_100px_rgba(34,211,238,0.2)]"
+            className="h-[88vh] max-w-[560px] object-cover opacity-40 sm:opacity-45 rounded-3xl select-none shadow-[0_0_80px_rgba(34,211,238,0.12)]"
           />
           {/* Subtle cosmic vignette gradient over the video to preserve text legibility */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0B1E]/30 via-transparent to-[#0A0B1E]/80 rounded-3xl pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0B1E]/40 via-transparent to-[#0A0B1E]/85 rounded-3xl pointer-events-none" />
         </div>
         {/* Soft edge fade into cosmic background */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A0B1E]/40 via-transparent to-[#0A0B1E] pointer-events-none" />
