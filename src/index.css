@@ -47,19 +47,20 @@ h4, h5, h6 {
   filter: sepia(100%) saturate(380%) hue-rotate(5deg) brightness(1.1) contrast(1.12) drop-shadow(0 0 12px rgba(250, 204, 21, 0.45));
 }
 
-/* Distinctive Jet Black Cards with Warm Yellow Accents */
+/* Ethereal Floating Space Surfaces (No Strict Borders — Text Floats in Deep Space) */
 .theme-card {
-  background-color: #0A0A0A;
-  border: 1px solid rgba(250, 204, 21, 0.15);
-  border-radius: 1.25rem;
-  transition: all 0.25s ease-in-out;
+  background: rgba(10, 10, 10, 0.45);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.85);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .theme-card:hover {
-  border-color: rgba(250, 204, 21, 0.45);
-  background-color: #111111;
-  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.9), 0 0 25px rgba(250, 204, 21, 0.08);
-  transform: translateY(-2px);
+  background: rgba(16, 16, 16, 0.65);
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.95), 0 0 35px rgba(250, 204, 21, 0.08);
+  transform: translateY(-3px);
 }
 
 /* Solid Bold Warm Yellow Primary Button */

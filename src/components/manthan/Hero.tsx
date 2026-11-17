@@ -113,16 +113,16 @@ export const Hero: React.FC<HeroProps> = () => {
           </button>
         </div>
 
-        {/* Interdisciplinary Fields with Soft Rounded Pills */}
-        <div className="pt-8 border-t border-yellow-500/15 w-full flex flex-col items-center">
-          <span className="text-[11px] font-mono text-yellow-400/80 uppercase tracking-wider mb-3">
+        {/* Interdisciplinary Fields Floating Seamlessly */}
+        <div className="pt-10 w-full flex flex-col items-center">
+          <span className="text-[11px] font-mono text-yellow-400/80 uppercase tracking-widest mb-4">
             Interdisciplinary Inquiry Fields
           </span>
           <div className="flex flex-wrap justify-center gap-2 sm:gap-2.5">
             {MANTHAN_CONTENT.introduction.disciplines.map((item) => (
               <span
                 key={item}
-                className="px-4 py-1.5 rounded-full text-xs font-mono text-yellow-200/90 bg-[#0E0E0E] border border-yellow-500/20 hover:border-yellow-400/50 transition-colors"
+                className="px-4 py-1.5 rounded-full text-xs font-mono text-yellow-200/90 bg-white/[0.04] hover:bg-yellow-400/15 hover:text-yellow-300 transition-all backdrop-blur-sm"
               >
                 ✦ {item}
               </span>
@@ -131,14 +131,14 @@ export const Hero: React.FC<HeroProps> = () => {
         </div>
       </div>
 
-      {/* 4. Ambient Controls Dock (Jet Black Pill with Warm Yellow Accents) */}
-      <div className="absolute bottom-6 right-6 z-20 flex items-center gap-2 p-1.5 px-2 rounded-full bg-[#0A0A0A]/95 border border-yellow-500/20 shadow-2xl backdrop-blur-md">
+      {/* 4. Ambient Controls Dock (Floating Frosted Glass) */}
+      <div className="absolute bottom-6 right-6 z-20 flex items-center gap-2 p-1.5 px-2.5 rounded-full bg-black/60 shadow-2xl backdrop-blur-xl">
         <button
           onClick={handleSoundToggle}
           className={`px-3.5 py-1.5 rounded-full transition-all cursor-pointer flex items-center gap-2 text-xs ${
             soundActive
               ? 'text-black bg-yellow-400 font-bold shadow-[0_0_15px_rgba(250,204,21,0.4)]'
-              : 'text-slate-400 hover:text-white bg-white/[0.04] border border-white/5 hover:border-yellow-400/30'
+              : 'text-slate-400 hover:text-white bg-white/[0.05] hover:bg-white/[0.1]'
           }`}
           aria-label={soundActive ? 'Pause ambient cosmic music' : 'Play ambient cosmic music'}
           title={soundActive ? 'Pause ambient cosmic music & chimes' : 'Play ambient cosmic music & chimes'}

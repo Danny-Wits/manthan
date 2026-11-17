@@ -5,12 +5,12 @@ import { MANTHAN_CONTENT } from '../../data/manthanContent';
 
 export const About: React.FC = () => {
   return (
-    <section id="about" className="py-24 sm:py-32 bg-transparent relative overflow-hidden border-t border-yellow-500/15">
+    <section id="about" className="py-28 sm:py-36 bg-transparent relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-20">
           {/* Left Column: Vision & Narrative */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
-            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#0D0D0D] border border-yellow-500/20 text-xs font-mono font-bold text-yellow-400 uppercase tracking-wider mb-4">
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-yellow-400/10 text-xs font-mono font-bold text-yellow-400 uppercase tracking-widest mb-4">
               <Sparkles className="w-3.5 h-3.5 text-yellow-400" />
               <span>{MANTHAN_CONTENT.about.sectionTitle}</span>
             </div>
@@ -27,11 +27,11 @@ export const About: React.FC = () => {
               ))}
             </div>
 
-            {/* Soft Rounded Jet Black Quote Box */}
-            <div className="p-6 rounded-2xl bg-[#0A0A0A] border border-yellow-500/20 shadow-xl">
+            {/* Floating Celestial Quote Surface */}
+            <div className="p-6 sm:p-8 rounded-3xl bg-black/40 backdrop-blur-md shadow-2xl relative overflow-hidden">
               <div className="flex items-start gap-4">
                 <Quote className="w-6 h-6 text-yellow-400 flex-shrink-0 mt-1" />
-                <p className="font-serif italic text-base sm:text-lg text-slate-200 leading-snug">
+                <p className="font-serif italic text-base sm:text-lg text-slate-200 leading-relaxed">
                   &ldquo;Understanding the human experience requires looking beyond a single discipline and bringing together different perspectives, ideas and forms of creativity.&rdquo;
                 </p>
               </div>
@@ -64,10 +64,10 @@ export const About: React.FC = () => {
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <div className="p-3 rounded-xl bg-black border border-yellow-500/20">
+                    <div className="p-3 rounded-2xl bg-white/[0.04]">
                       {icons[idx]}
                     </div>
-                    <span className="text-xs font-mono font-bold text-yellow-400">
+                    <span className="text-xs font-mono font-bold text-yellow-400 bg-yellow-400/10 px-3 py-1 rounded-full">
                       0{idx + 1}
                     </span>
                   </div>

@@ -17,11 +17,11 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-24 sm:py-32 bg-transparent relative overflow-hidden border-t border-yellow-500/15">
+    <section id="contact" className="py-28 sm:py-36 bg-transparent relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#0D0D0D] border border-yellow-500/20 text-xs font-mono font-bold text-yellow-400 uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-yellow-400/10 text-xs font-mono font-bold text-yellow-400 uppercase tracking-widest mb-4">
             <Sparkles className="w-3.5 h-3.5 text-yellow-400" />
             <span>{MANTHAN_CONTENT.contact.sectionTitle}</span>
           </div>
@@ -44,7 +44,7 @@ export const Contact: React.FC = () => {
               href={`tel:${MANTHAN_CONTENT.contact.phone}`}
               className="theme-card p-6 flex items-start gap-4 group cursor-pointer block"
             >
-              <div className="w-11 h-11 rounded-xl bg-white/[0.03] border border-white/5 text-yellow-400 flex items-center justify-center flex-shrink-0">
+              <div className="w-11 h-11 rounded-2xl bg-white/[0.04] text-yellow-400 flex items-center justify-center flex-shrink-0">
                 <Phone className="w-5 h-5" />
               </div>
               <div className="flex-1">
@@ -66,7 +66,7 @@ export const Contact: React.FC = () => {
               href={`mailto:${MANTHAN_CONTENT.contact.email}`}
               className="theme-card p-6 flex items-start gap-4 group cursor-pointer block"
             >
-              <div className="w-11 h-11 rounded-xl bg-white/[0.03] border border-white/5 text-yellow-400 flex items-center justify-center flex-shrink-0">
+              <div className="w-11 h-11 rounded-2xl bg-white/[0.04] text-yellow-400 flex items-center justify-center flex-shrink-0">
                 <Mail className="w-5 h-5" />
               </div>
               <div className="flex-1">
@@ -90,7 +90,7 @@ export const Contact: React.FC = () => {
               rel="noopener noreferrer"
               className="theme-card p-6 flex items-start gap-4 group cursor-pointer block"
             >
-              <div className="w-11 h-11 rounded-xl bg-white/[0.03] border border-white/5 text-emerald-400 flex items-center justify-center flex-shrink-0">
+              <div className="w-11 h-11 rounded-2xl bg-white/[0.04] text-emerald-400 flex items-center justify-center flex-shrink-0">
                 <MessageSquare className="w-5 h-5" />
               </div>
               <div className="flex-1">
@@ -108,7 +108,7 @@ export const Contact: React.FC = () => {
             </a>
 
             {/* Geographic Scope */}
-            <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/5 text-xs text-slate-300 space-y-2">
+            <div className="p-6 rounded-3xl bg-black/40 backdrop-blur-md shadow-2xl text-xs text-slate-300 space-y-2">
               <div className="flex items-center gap-2 text-white font-bold">
                 <MapPin className="w-4 h-4 text-yellow-400" />
                 <span>Geographic Scope & Delivery</span>

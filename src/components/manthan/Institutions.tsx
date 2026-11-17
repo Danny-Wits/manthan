@@ -93,17 +93,17 @@ export const Institutions: React.FC<InstitutionsProps> = ({ selectedTopicTitle }
   };
 
   return (
-    <section id="institutions" className="py-24 sm:py-32 bg-transparent relative overflow-hidden border-t border-yellow-500/15">
+    <section id="institutions" className="py-28 sm:py-36 bg-transparent relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#0D0D0D] border border-yellow-500/20 text-xs font-mono font-bold text-yellow-400 uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-yellow-400/10 text-xs font-mono font-bold text-yellow-400 uppercase tracking-widest mb-4">
             <Sparkles className="w-3.5 h-3.5 text-yellow-400" />
             <span>{MANTHAN_CONTENT.institutions.sectionTitle}</span>
           </div>
 
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-wide mb-4">
-            Bringing <span className="text-yellow-400">MANTHAN</span> to Institutions
+            Bringing <span className="text-yellow-400 font-serif italic font-normal">MANTHAN</span> to Institutions
           </h2>
 
           <p className="font-serif italic text-2xl sm:text-3xl text-yellow-400 font-normal mb-6">
@@ -124,11 +124,11 @@ export const Institutions: React.FC<InstitutionsProps> = ({ selectedTopicTitle }
               <Award className="w-5 h-5 text-yellow-400" key="3" />,
             ];
             return (
-              <div key={tier.title} className="theme-card p-6">
-                <div className="w-11 h-11 rounded-xl bg-black border border-yellow-500/20 flex items-center justify-center mb-4">
+              <div key={tier.title} className="theme-card p-8">
+                <div className="w-12 h-12 rounded-2xl bg-white/[0.04] flex items-center justify-center mb-5">
                   {icons[idx]}
                 </div>
-                <h3 className="text-base font-bold text-white mb-2">
+                <h3 className="font-display text-lg font-bold text-white mb-2">
                   {tier.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
@@ -141,9 +141,9 @@ export const Institutions: React.FC<InstitutionsProps> = ({ selectedTopicTitle }
 
         {/* Main Booking Console with Soft Rounded Layout */}
         <div className="max-w-3xl mx-auto theme-card overflow-hidden">
-          <div className="px-6 py-5 sm:px-8 sm:py-6 bg-[#0E0E0E] border-b border-yellow-500/15 flex items-center justify-between">
+          <div className="px-6 py-5 sm:px-8 sm:py-6 bg-white/[0.02] flex items-center justify-between">
             <div>
-              <span className="text-xs font-mono tracking-wider text-amber-400 uppercase font-semibold">
+              <span className="text-xs font-mono tracking-wider text-yellow-400 uppercase font-semibold">
                 Official Collaboration Portal
               </span>
               <h3 className="text-lg sm:text-xl font-bold text-white mt-0.5">
@@ -151,7 +151,7 @@ export const Institutions: React.FC<InstitutionsProps> = ({ selectedTopicTitle }
               </h3>
             </div>
             <div className="hidden sm:flex items-center gap-1.5 text-xs text-slate-400">
-              <Clock className="w-4 h-4 text-amber-400" />
+              <Clock className="w-4 h-4 text-yellow-400" />
               <span>Prompt response within 24-48 hrs</span>
             </div>
           </div>

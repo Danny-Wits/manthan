@@ -21,9 +21,9 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="w-full bg-black/60 backdrop-blur-md border-t border-yellow-500/15 py-16 px-4 sm:px-6 lg:px-8 text-slate-400 font-sans text-xs relative z-10">
+    <footer className="w-full bg-black/40 backdrop-blur-md pt-20 pb-16 px-4 sm:px-6 lg:px-8 text-slate-400 font-sans text-xs relative z-10">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/[0.08]">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12">
           {/* Col 1: Brand Info */}
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
@@ -152,7 +152,7 @@ export const Footer: React.FC = () => {
 
             <button
               onClick={scrollToTop}
-              className="p-2.5 rounded-full bg-[#0D0D0D] hover:bg-[#1A1A1A] text-yellow-400 hover:text-white border border-yellow-500/20 transition-all cursor-pointer shadow-sm"
+              className="p-2.5 rounded-full bg-white/[0.05] hover:bg-yellow-400 hover:text-black text-yellow-400 transition-all cursor-pointer shadow-lg"
               aria-label="Back to top"
             >
               <ArrowUp className="w-4 h-4 text-yellow-400" />
